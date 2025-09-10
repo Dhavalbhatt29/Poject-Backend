@@ -1,28 +1,26 @@
-// const {MONGODB_URL} = require('./config');
-// const mongoose = require('mongoose');
-// const today = require('../models/today_model');
+const {MONGODB_URL} = require('./config');
+const mongoose = require('mongoose');
+const today = require('../models/today_model');
     
-// const connectDB = async () => {
-//     try {
-//         await mongoose.connect(MONGODB_URL)
-//         console.log("MongoDB Connection Success");
-//         today;
-//         return true;    
+const connectDB = async () => {
+    try {
+        await mongoose.connect(MONGODB_URL)
+        console.log("MongoDB Connection Success");
+        today;
+        return true;    
 
-//     } catch (error) {
-//         if(error.name === 'MongooseServerSelectionError'){
-//             console.error("Check Mongodb server is running or not");
+    } catch (error) {
+        if(error.name === 'MongooseServerSelectionError'){
+            console.error("Check Mongodb server is running or not");
             
-//         }else{
-//             console.error("MongoDB Connection Failed");
+        }else{
+            console.error("MongoDB Connection Failed");
             
-//         }
-//         process.exit(1);
-//         return false;
-        
-//     }
-    
-// }
+        }
+        process.exit(1);
+        return false;
+    }
+}
 
-// module.exports = connectDB;
+module.exports = connectDB;
 

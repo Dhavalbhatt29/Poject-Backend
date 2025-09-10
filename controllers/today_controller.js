@@ -16,7 +16,7 @@ const todayuser = async (req, res) => {
       Password: hashedPassword,
       City,
       Birthdate,
-      ContactNo,
+      ContactNo,  
       Gender,
     });
     await user.save();
@@ -85,7 +85,7 @@ const login = async (req, res) => {
     const token = await jwt.sign({ id: user._id }, JWT_SECRET, {
       expiresIn: "1d",
     });
-
+    
     res.status(200).json({
       status: true,
       data: { message: "Login success", data: user, token: token },
